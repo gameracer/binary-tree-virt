@@ -1,0 +1,56 @@
+@startuml
+class com.msmchomvu.avltreeVirt.Main {
+- AVLTree tree
+- TreeView treeView
+- boolean slowMotion
+- Text message
++ void start(Stage)
+- void searchWithDelay(int)
++ {static} void main(String[])
+}
+
+
+class com.msmchomvu.avltreeVirt.TreeView {
+- {static} double RADIUS
+- {static} double VERTICAL_GAP
+- {static} double HORIZONTAL_GAP
+- AVLNode matchedNode
+- AVLNode unmatchedNode
++ void drawTree(AVLNode,AVLNode,AVLNode)
+- void drawNode(AVLNode,double,double,double)
+}
+
+
+class com.msmchomvu.avltreeVirt.AVLNode {
+~ int key
+~ AVLNode left
+}
+
+class com.msmchomvu.avltreeVirt.AVLTree {
+- AVLNode root
+- AVLNode searchedNode
+- AVLNode rotationNode1
+- AVLNode rotationNode2
+- int height(AVLNode)
+- int max(int,int)
+- AVLNode rightRotate(AVLNode)
+- AVLNode leftRotate(AVLNode)
+- int getBalance(AVLNode)
+- void highlightAndWait()
++ AVLNode insert(AVLNode,int)
++ void insert(int)
++ AVLNode delete(AVLNode,int)
+- AVLNode minValueNode(AVLNode)
++ void delete(int)
++ AVLNode search(AVLNode,int)
++ boolean search(int)
++ AVLNode getRoot()
++ AVLNode getSearchedNode()
+}
+
+
+
+
+javafx.application.Application <|-- com.msmchomvu.avltreeVirt.Main
+javafx.scene.layout.Pane <|-- com.msmchomvu.avltreeVirt.TreeView
+@enduml
